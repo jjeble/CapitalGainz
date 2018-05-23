@@ -1,0 +1,40 @@
+<html>
+    <head>
+      {% block scripts %}
+      <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script>
+        function translate(sourceElem, destElem, sourceLang, destLang) {
+          console.log(destElem);
+          //  $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+            $.post('/index', {
+                text: 'hello',
+
+                source_language: sourceLang,
+                dest_language: destLang
+
+            }).done(function(response) {
+              console.log(response['text']);
+                $(destElem).text('hi');
+            }).fail(function() {
+                $(destElem).text("{{('Error: Could not contact server.') }}");
+            });
+        }
+    </script>
+{% endblock %}
+      {% if title %}
+      <title>{{ title }} - Microblog</title>
+      {% else %}
+      <title>Welcome to Microblog</title>
+      {% endif %}
+    </head>
+    <body>
+        <img src="https://s3.amazonaws.com/libapps/customers/2704/images/Company_CapitalGroup_logo.jpg" alt="Capital Group Logo" style="width:100px;height:100px;">
+        <div>Microblog: <a href="/index">Home</a></div>
+        <a href="/login">Login</a>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

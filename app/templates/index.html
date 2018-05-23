@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+    <br><br>
+    <span id="post1">hey there</span>
+    <span id="translation{{ post1 }}">
+                    <a href="javascript:translate(
+                                'pop',
+                                '#post1',
+                                'hop',
+                                'jum');">{{('Translat') }}</a>
+                </span>
+
+{% endblock %}
