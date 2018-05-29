@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+.button {
+  width:270px;
+  height:180px;
+  align:center;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+  font-family: avenir next;
+}
+.button1
+{
+  background-color: #FF6347;
+}
+
+.button2
+{
+  background-color: green;
+}
+
+.button3
+{
+  background-color: #800080;
+}
+
+.button4
+{
+  background-color: #FFA500;
+}
+.button5
+{
+  background-color: #0000FF;
+}
+.button6
+{
+  background-color: #384f3a;
+}
+
+.button1:hover {background-color: #8B0000}
+.button2:hover {background-color: #2E8B57}
+.button3:hover {background-color: #4B0082}
+
+.button4:hover {background-color: #FF8C00}
+.button5:hover {background-color: #00008B}
+.button6:hover {background-color: #1d2d1e}
+
+.button:active {
+  background-color: #0918fa;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+</style>
+<br>
+<br>
+
+<h1 align = "center" style="font-family:avenir next;">
+Investment Objective
+</h1>
+
+
+<div class="w3-container">
+  <div class="w3-show-inline-block">
+  <div class="w3-bar" align ="center">
+    <button class="button button1">General Savings</button>
+    <button class="button button2">Plan for Retirement</button>
+
+    <button onclick="location.href = '/questionnaire';" class="button button3">Save up for College</button>
+
+  </div>
+  </div>
+  <br>
+  <div class="w3-show-inline-block">
+  <div class="w3-bar" align ="center">
+    <button class="button button4">Buy a House</button>
+      <button class="button button5">Buy a Car</button>
+    <button class="button button6">Invest in Mutual Funds</button>
+  </div>
+  </div>
+
+</div>
+<div class="container">
+
+<br>
+<br>
+<br>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+      0%
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

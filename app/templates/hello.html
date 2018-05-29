@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+</style>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 align = "center" style="font-family:avenir next;">
+<span style="color:black;">How old is your child? (in years)</span>
+</h1>
+<br><br><br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message[1] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="" method="post">
+            {{ form.csrf }}
+
+            <div class="input text">
+                {{ form.age.label }} {{ form.age}}
+            </div>
+
+            <div class="input submit">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+
+        <br><br><br><br>
+        <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+
+
+
+
+        <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+        10%
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-4"></div>
+
+{% endblock %}
