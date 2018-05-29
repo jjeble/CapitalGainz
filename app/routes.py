@@ -2,7 +2,7 @@ from flask import render_template
 from app import app
 from app.forms import LoginForm
 from app.forms import PostForm, ReusableForm, QuestionsForm
-from guess_language import guess_language
+#from guess_language import guess_language
 from flask import jsonify
 from flask import request
 from flask import flash
@@ -48,7 +48,7 @@ def hello():
             info = "That means your child has "+ str(years_for_college) + " years left for college!"
             flash
         else:
-            flash("Fill out your child's age )
+            flash("Fill out your child's age ")
 
     return render_template('hello.html', form=form)
 
