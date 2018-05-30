@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+</style>
+<br>
+<br>
+<br>
+<br>
+<br>
+ {% if age_info %}
+ <h2 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">{{ age_info }}</span>
+ </h2>
+ <br><br>
+ <h1 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">What kind of college do you want to send your child off to?
+</span>
+ </h1>
+
+ <form action="" method="post" align = "center">
+     {{ form.csrf }}
+     <input type="submit" name="ctype" value="Private College">
+     <input type="submit" name="ctype" value="Public College">
+     <input type="submit" name="ctype" value="Community College">
+ </form>
+
+ <br><br><br><br>
+
+
+
+ {% elif ctype_info %}
+
+ <h2 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">{{ ctype_info }}</span>
+ </h2>
+ <br><br>
+ <h4 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">{{ ctype_subinfo }}</span>
+ </h4>
+ <br><br>
+ <h1 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">Hard to tell right now, but do you think you will send your child to a local college or out of state?</span>
+ </h1>
+
+ <form action="" method="post" align = "center">
+     {{ form.csrf }}
+       <input type="submit" name="state" value="In State">
+     <input type="submit" name="state" value="Out of State">
+ </form>
+
+ {% elif state_info %}
+
+ <h2 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">{{ state_info }}</span>
+ </h2>
+ <br><br>
+ <h4 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">{{ state_subinfo }}</span>
+ </h4>
+ <br><br>
+ <h1 align = "center" style="font-family:avenir next;">
+ <span style="color:black;">Which of the following would you consider for higher education for your child beyond their bachelor's degree?</span>
+ </h1>
+
+ <form action="" method="post" align = "center">
+     {{ form.csrf }}
+     <input type="checkbox" name="options" id="option1" value="option1"> Graduate School </input><br>
+     <input type="checkbox" name="options" id="option2" value="option2"> MBA </input><br>
+     <input type="checkbox" name="options" id="option3" value="option3"> PhD </input><br>
+     <input type="checkbox" name="options" id="option4" value="option4"> Professional Programs </input><br>
+     <input type="checkbox" name="options" id="option5" value="option5"> None of the Above </input><br>
+     <input type="submit" name="submit" value="Submit">
+ </form>
+
+
+ {% else %}
+
+ <br><br>
+<h1 align = "center" style="font-family:avenir next;">
+<span style="color:black;">How old is your child? (in years)</span>
+</h1>
+<br><br><br>
+
+        <form action="" method="post" align = "center">
+            {{ form.csrf }}
+
+            <div class="input text">
+                {{ form.age.label }} {{ form.age}}
+            </div>
+
+            <div class="input submit">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+
+        <br><br><br><br>
+        {% endif %}
+        <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+
+
+
+
+        <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow= "{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%">
+        {{ progress }}%
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-4"></div>
+
+{% endblock %}
