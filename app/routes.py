@@ -30,7 +30,7 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
-@app.route('/questionnare', methods=['GET', 'POST'])
+@app.route('/questionnaire', methods=['GET', 'POST'])
 def hello():
     form = ReusableForm(request.form)
 
@@ -71,14 +71,14 @@ def hello():
 
     return render_template('questions.html', form=form, progress = 20)
 
-@app.route('/questionnare',methods=['GET','POST'])
-def questions():
-    form = QuestionsForm(request.form)
-    if request.method == 'POST':  #this block is only entered when the form is submitted
-        language = request.form.get('age')
-        return '''<h1>The language value is: bal</h1>
-                  <h1>The framework value is: bah</h1>'''
-    return render_template('questions.html',form = form, title='Questions')
+#@app.route('/questionnare',methods=['GET','POST'])
+#def questions():
+#    form = QuestionsForm(request.form)
+#    if request.method == 'POST':  #this block is only entered when the form is submitted
+#        language = request.form.get('age')
+#        return '''<h1>The language value is: bal</h1>
+#                  <h1>The framework value is: bah</h1>'''
+#    return render_template('questions.html',form = form, title='Questions')
 
 
 @app.route('/translate',methods=['POST'])

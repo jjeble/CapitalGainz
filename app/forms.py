@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import Form, validators,TextField,StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import Form, validators,TextField,StringField, PasswordField, BooleanField, SubmitField, IntegerField
+from wtforms.validators import DataRequired, NumberRange, InputRequired
 class LoginForm(FlaskForm):
     username = StringField('Username', validators= [DataRequired()])
     password = PasswordField('Password',validators=[DataRequired()])
@@ -10,4 +10,4 @@ class PostForm(FlaskForm):
     ina = StringField('Username', validators= [DataRequired()])
 
 class ReusableForm(Form):
-    age = TextField('Age:', validators=[validators.required()])
+    age = IntegerField('Age:', validators=[InputRequired(), NumberRange(min=0,max=100)]) #best practice to use InputRequired instead of DataRequired due to some details under the hood

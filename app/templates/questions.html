@@ -88,6 +88,11 @@
                 {{ form.age.label }} {{ form.age}}
             </div>
 
+			<div>
+				{% for error in form.age.errors %}
+				<span style="color: red;">[{{ error }}]</span>
+				{% endfor %}
+			</div>
             <div class="input submit">
                 <input type="submit" value="Submit" />
             </div>
