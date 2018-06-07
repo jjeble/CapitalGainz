@@ -44,7 +44,45 @@ body {font-family:avenir next;}
     cursor: pointer;
 }
 </style>
+<style>
+.slidecontainer {
+    width: 100%;
+}
 
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
 <h2 align = "left" style="font-family:avenir next;">
 <span style="color:black;">   Best strategy suited for your need</span>
 </h2>
@@ -67,8 +105,8 @@ body {font-family:avenir next;}
 
         <div class="col-sm-4">
           <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow= "18.2" aria-valuemin="0" aria-valuemax="100" style="width:18.2%">
-      18.2%
+      <div class="progress-bar" id = "pb1" role="progressbar" aria-valuenow= "24.5" aria-valuemin="0" aria-valuemax="100" style="width:24.5%">
+      <span id="demo"></span>
       </div>
     </div>
   </div>
@@ -86,8 +124,8 @@ body {font-family:avenir next;}
 
         <div class="col-sm-4">
           <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow= "18.2" aria-valuemin="0" aria-valuemax="100" style="width:18.2%">
-      18.2%
+      <div class="progress-bar" id = "pb2" role="progressbar" aria-valuenow= "26" aria-valuemin="0" aria-valuemax="100" style="width:26%">
+      <span id="demo1"></span>
       </div>
     </div>
   </div>
@@ -106,8 +144,8 @@ body {font-family:avenir next;}
 
         <div class="col-sm-4">
           <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow= "27.3" aria-valuemin="0" aria-valuemax="100" style="width:27.3%">
-      27.3%
+      <div class="progress-bar" id = "pb3" role="progressbar" aria-valuenow= "27.5" aria-valuemin="0" aria-valuemax="100" style="width:27.5%">
+    <span id="demo2"></span>
       </div>
     </div>
   </div>
@@ -124,8 +162,8 @@ body {font-family:avenir next;}
 
         <div class="col-sm-4">
           <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow= "36.4" aria-valuemin="0" aria-valuemax="100" style="width:36%">
-      36.4%
+      <div class="progress-bar" id = "pb4" role="progressbar" aria-valuenow= "22" aria-valuemin="0" aria-valuemax="100" style="width:22%">
+      <span id="demo3"></span>
       </div>
     </div>
   </div>
@@ -197,6 +235,16 @@ body {font-family:avenir next;}
   </div>
 
 </div>
+<h4>Risk</h4>
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+<div class="""slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <p>Value: <span id="val"></span></p>
+</div>
+</div>
+<div class="col-sm-4">
+  </div>
 
 <script>
 // Get the modal
@@ -279,6 +327,29 @@ function drawChart() {
   chart3.draw(data, options);
 }
 </script>
-
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+var output1 = document.getElementById("demo1");
+var output2 = document.getElementById("demo2");
+var output3 = document.getElementById("demo3");
+var output4 = document.getElementById("val");
+output.innerHTML = 24.5;
+output1.innerHTML = 26;
+output2.innerHTML = 27.5;
+output3.innerHTML = 22;
+output4.innerHTML = 1.0
+slider.oninput = function() {
+  output.innerHTML = (0.17 * this.value+  16).toFixed(2);
+  document.getElementById("pb1").style["width"] = (0.17 * this.value+ + 16)+"%";
+  document.getElementById("pb2").style["width"] = (0.08 * this.value+ + 22)+"%";
+  document.getElementById("pb3").style["width"] = (0.05 * this.value+ + 27)+"%";
+  document.getElementById("pb4").style["width"] = 100-(0.17 * this.value+  16+0.08 * this.value + 22 + 0.05 * this.value+ + 25)+"%";
+  output1.innerHTML = (0.08 * this.value+ + 22).toFixed(2);
+  output2.innerHTML = (0.05 * this.value+ + 25).toFixed(2);
+  output3.innerHTML = (100-(0.17 * this.value+  16+0.08 * this.value + 22 + 0.05 * this.value+ 25)).toFixed(2);
+  output4.innerHTML = ((this.value * 2)/100).toFixed(1);
+}
+</script>
 
 {% endblock %}
