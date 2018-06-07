@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+checkbox{
+  float: left;
+  margin: 5px 0px;
+}
 </style>
 <br>
 <br>
 <br>
-<br>
-<br>
+
  {% if age_info %}
+ <br>
+ <br>
  <h2 align = "center" style="font-family:avenir next;">
  <span style="color:black;">{{ age_info }}</span>
  </h2>
@@ -64,11 +70,11 @@
 
  <form action="" method="post" align = "center">
      {{ form.csrf }}
-     <input type="checkbox" name="options" id="option1" value="option1"> Graduate School </input><br>
-     <input type="checkbox" name="options" id="option2" value="option2"> MBA </input><br>
-     <input type="checkbox" name="options" id="option3" value="option3"> PhD </input><br>
-     <input type="checkbox" name="options" id="option4" value="option4"> Professional Programs </input><br>
-     <input type="checkbox" name="options" id="option5" value="option5"> None of the Above </input><br>
+     <input type="checkbox" name="options" id="option1" value="Graduate School">Graduate School </input><br>
+     <input type="checkbox" name="options" id="option2" value="MBA"> MBA </input><br>
+     <input type="checkbox" name="options" id="option3" value="PhD "> PhD </input><br>
+     <input type="checkbox" name="options" id="option4" value="Professional Programs"> Professional Programs </input><br>
+     <input type="checkbox" name="options" class="optionsnone" id="optionsnone option5" value="None of the Above"> None of the Above </input><br>
      <input type="submit" name="submit" value="Submit">
  </form>
 
@@ -88,11 +94,6 @@
                 {{ form.age.label }} {{ form.age}}
             </div>
 
-			<div>
-				{% for error in form.age.errors %}
-				<span style="color: red;">[{{ error }}]</span>
-				{% endfor %}
-			</div>
             <div class="input submit">
                 <input type="submit" value="Submit" />
             </div>
@@ -115,5 +116,25 @@
         </div>
         </div>
         <div class="col-sm-4"></div>
+<script>
+//Script for questions where you check one option or the other (locks other options out)
 
+$('.optionsnone').click(function(){
+  console.log('zero');
+    var $checkbox = $(this);
+    var isChecked = $checkbox.is(':checked')
+
+    //If no option is checked, the make all the options available to be selected
+    //Otherwise, one option must be checked so lock out all other options
+    if(isChecked)
+    {
+        $checkbox.siblings(":checkbox").prop("disabled", true);
+        $checkbox.siblings(":checkbox").prop("checked", false);
+}
+    else
+    {
+        $checkbox.siblings(":checkbox").removeAttr("disabled");
+}
+})
+</script>
 {% endblock %}
