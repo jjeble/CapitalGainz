@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+body {font-family:avenir next;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
+<h2 align = "left" style="font-family:avenir next;">
+<span style="color:black;">   Best strategy suited for your need</span>
+</h2>
+
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Investment Type</th>
+      <th scope="col">Share of Investment</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="myBtn">
+      <th scope="row">1</th>
+      <td>Stocks</td>
+      <td>
+        <div class="row">
+
+        <div class="col-sm-4">
+          <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow= "18.2" aria-valuemin="0" aria-valuemax="100" style="width:18.2%">
+      18.2%
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+    </td>
+
+    </tr>
+    <tr id="myBtn1">
+      <th scope="row">2</th>
+      <td>Mutual Funds</td>
+      <td>
+        <div class="row">
+
+        <div class="col-sm-4">
+          <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow= "18.2" aria-valuemin="0" aria-valuemax="100" style="width:18.2%">
+      18.2%
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+    </td>
+
+
+    </tr>
+    <tr id="myBtn2">
+      <th scope="row">3</th>
+      <td>Bonds</td>
+      <td>
+        <div class="row">
+
+        <div class="col-sm-4">
+          <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow= "27.3" aria-valuemin="0" aria-valuemax="100" style="width:27.3%">
+      27.3%
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+    </td>
+    </tr>
+    <tr id="myBtn3">
+      <th scope="row">4</th>
+      <td>Insurance Series</td>
+      <td>
+        <div class="row">
+
+        <div class="col-sm-4">
+          <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow= "36.4" aria-valuemin="0" aria-valuemax="100" style="width:36%">
+      36.4%
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+    </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <h2>STRATEGY</h2>
+    <h3>Stocks</h3>
+    <br>
+    <p>College savings plans work differently in that you aren't locking in a specific rate at a specific school or group of schools. Instead, you're putting money into a tax-advantaged account that you can invest to pay for educational costs that you incur in the future. Your contributions aren't deductible on your federal return, but some states offer a tax deduction for contributions. However, the money does grow tax-free and, as long as the money is used for qualified educational expenses, it all comes out tax-free. You can generally change beneficiaries over time as well, so you can even open a 529 plan for future children before they are born or even conceived.</p>
+<div id="piechart"></div>
+  </div>
+
+</div>
+
+<div id="myModal1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <h2>STRATEGY</h2>
+    <h3> Mutual Funds </h3>
+    <br>
+    <p>The majority of investments not in a cash portion are mutual funds, a collection of stocks, bonds, or other assets purchased in shares. While most plans offer a predetermined mix of investments designed to automatically reduce mutual fund investments as children age or to maintain parents' or grandparents' desired risk levels, 529 plans vary in qualities such as price, portfolio management strategies, and investment options. </p>
+<div id="piechart1"></div>
+  </div>
+
+</div>
+<div id="myModal2" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <h2>STRATEGY</h2>
+    <h3> Bonds </h3>
+    <br>
+    <p>Whether you own an age-based option or individual portfolio in your 529 account, your bond allocation is invested in underlying mutual funds. These mutual funds are diversified—they pool together money from many investors to buy various bonds issued by a variety of institutions. Unlike stock funds, bond funds grow primarily by the income they produce rather than the price they command.</p>
+<div id="piechart2"></div>
+  </div>
+
+</div>
+<div id="myModal3" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <h2>STRATEGY</h2>
+    <h3> Insurance Series </h3>
+    <br>
+    <p>When contrasted with a 529 plan, life insurance has a couple of nice benefits going for it. One is flexibility. Suppose your child, for whatever reason, ends up not going to college. Any earnings in your 529 account, although not your contributions, are now subject to ordinary income tax rates if you don't use them to pay for education costs. There are some plans that allow the beneficiary – usually someone in a lower tax bracket – to withdraw the funds. But it’s still a significant tax hit that life insurance owners don’t have to face.  </p>
+<div id="piechart3"></div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btn1 = document.getElementById("myBtn1");
+var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("myBtn3");
+var btn4 = document.getElementById("myBtn4");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var bt1 = false;
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+btn1.onclick = function() {
+    modal1.style.display = "block";
+    bt1 = true;
+
+}
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+btn3.onclick = function() {
+    modal3.style.display = "block";
+}
+
+
+
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal || event.target == modal1 || event.target == modal2 || event.target == modal3 ) {
+        modal.style.display = "none";
+        modal1.style.display = "none";
+        modal2.style.display = "none";
+        modal3.style.display = "none";
+
+    }
+}
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Investment Option', 'Share of Invesment'],
+  ['Stocks', 20],
+  ['Bonds', 30],
+  ['Mutual Funds', 20],
+  ['Insurance Series', 40],
+
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Your Investment Strategy', 'width':500, 'height':200};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+  var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+  var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+  chart.draw(data, options);
+  chart1.draw(data, options);
+  chart2.draw(data, options);
+  chart3.draw(data, options);
+}
+</script>
+
+
+{% endblock %}
