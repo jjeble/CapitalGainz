@@ -6,6 +6,10 @@ from guess_language import guess_language
 from flask import jsonify
 from flask import request
 from flask import flash
+age = 0
+college = ""
+state = ""
+options = []
 @app.route('/',methods = ['GET','POST'])
 @app.route('/index',methods = ['GET','POST'])
 def index():
@@ -34,9 +38,11 @@ def login():
 def hello():
     form = ReusableForm(request.form)
 
+
     print(form.errors)
     if request.method == 'POST':
         if('age' in request.form):
+            global age
             age=request.form['age']
             if form.validate():
                 # Save the comment here.
@@ -58,9 +64,12 @@ def hello():
                 ctype_subinfo = "Did you know? Many students who attend private colleges have more opportunities for scholarships because of the strong relationships private institutions have with their alumni."
             elif(ctype == 'Community College'):
                 ctype_subinfo = "Did you know? The most obvious reason that students attend community college is for the financial advantage. Many junior colleges cost less than two thousand dollars each semester to attend full time."
+            global college
+            college = ctype
             return render_template('questions.html',form = form,ctype_info = ctype_info, progress = 60,ctype_subinfo = ctype_subinfo)
         elif ('state' in request.form):
-            state = request.form['state']
+            global state
+            state  = request.form['state']
             state_info = str(state) + " is a great choice!"
             state_subinfo = ""
             if(state == 'In State'):
@@ -68,17 +77,21 @@ def hello():
             elif(state=="Out of State"):
                 state_subinfo = "Going to college out of state is an exciting and new experience. Not only do you experience culture shock, but you also learn to become more independent and have the opportunity to meet new people from a new region of the country."
             return render_template('questions.html',form = form,state_info = state_info, progress = 80,state_subinfo = state_subinfo)
+        elif ('options' in request.form):
+            global options
 
+            options = request.form.getlist('options')
+            return render_template('results.html',age = age,college = college,state = state, options = options)
     return render_template('questions.html', form=form, progress = 20)
 
-#@app.route('/questionnare',methods=['GET','POST'])
-#def questions():
-#    form = QuestionsForm(request.form)
-#    if request.method == 'POST':  #this block is only entered when the form is submitted
-#        language = request.form.get('age')
-#        return '''<h1>The language value is: bal</h1>
-#                  <h1>The framework value is: bah</h1>'''
-#    return render_template('questions.html',form = form, title='Questions')
+@app.route('/questionnare',methods=['GET','POST'])
+def questions():
+    form = QuestionsForm(request.form)
+    if request.method == 'POST':  #this block is only entered when the form is submitted
+        language = request.form.get('age')
+        return '''<h1>The language value is: bal</h1>
+                  <h1>The framework value is: bah</h1>'''
+    return render_template('questions.html',form = form, title='Questions')
 
 
 @app.route('/translate',methods=['POST'])
