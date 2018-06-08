@@ -5,8 +5,22 @@
 checkbox{
   float: left;
   margin: 5px 0px;
+
 }
+#imag:hover{
+  opacity: 0.5;
+
+}
+#imag{
+  box-shadow: 10px 10px 5px #ccc;
+     -moz-box-shadow: 10px 10px 5px #ccc;
+     -webkit-box-shadow: 10px 10px 5px #ccc;
+     -khtml-box-shadow: 10px 10px 5px #ccc;
+   border-radius: 25px;
+}
+
 </style>
+
 <br>
 <br>
 <br>
@@ -25,9 +39,10 @@ checkbox{
 
  <form action="" method="post" align = "center">
      {{ form.csrf }}
-     <input type="submit" name="ctype" value="Private College">
-     <input type="submit" name="ctype" value="Public College">
-     <input type="submit" name="ctype" value="Community College">
+
+     <input type="image" id = "imag" src="http://oi65.tinypic.com/25z3ua0.jpg" width="280" height="180" name="ctype" value="Private College">
+     <input type="image" id = "imag" src = "http://oi66.tinypic.com/1408ylk.jpg" width="280" height="180" name="ctype" value="Public College">
+     <input type="image" id = "imag" src = "http://oi65.tinypic.com/288ywc4.jpg" width="280" height="180" name="ctype" value="Community College">
  </form>
 
  <br><br><br><br>
@@ -70,6 +85,7 @@ checkbox{
 
  <form action="" method="post" align = "center">
      {{ form.csrf }}
+
      <input type="checkbox" name="options" id="option1" value="Graduate School">Graduate School </input><br>
      <input type="checkbox" name="options" id="option2" value="MBA"> MBA </input><br>
      <input type="checkbox" name="options" id="option3" value="PhD "> PhD </input><br>
